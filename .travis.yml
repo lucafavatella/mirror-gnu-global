@@ -1,0 +1,27 @@
+os: osx
+osx_image: xcode7.1
+language: c
+before_install:
+  - brew rm ctags || true
+  - brew rm universal-ctags || true
+  - brew update
+  - brew update
+  #- brew upgrade
+install:
+  - case "${GF:?}" in "lucafavatella/core/global-universal-ctags") brew install --HEAD universal-ctags/universal-ctags/universal-ctags;; esac
+script:
+  - case "${H?}" in "") brew install -v "${GF:?}" --with-ctags --with-pygments;; "--HEAD") brew install -v "${GF:?}" "${H?}" --with-ctags --with-pygments;; esac
+  - brew audit "${GF:?}"
+  - brew audit --strict --online "${GF:?}"
+  - brew test -v "${GF:?}"
+  - brew test "${GF:?}"
+matrix:
+  allow_failures:
+  fast_finish: true
+env:
+  #- GF="global" H=""
+  #- GF="global" H="--HEAD"
+  - GF="lucafavatella/core/global" H=""
+  - GF="lucafavatella/core/global" H="--HEAD"
+  - GF="lucafavatella/core/global-universal-ctags" H=""
+  - GF="lucafavatella/core/global-universal-ctags" H="--HEAD"
