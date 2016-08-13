@@ -15,3 +15,9 @@ http://lists.gnu.org/archive/html/info-global/
 https://www.gnu.org/software/automake/manual/html_node/Basics-of-Distribution.html
 
 pygments http://lists.gnu.org/archive/html/bug-global/2016-06/msg00004.html http://lists.gnu.org/archive/html/bug-global/2016-06/msg00005.html
+
+
+
+https://github.com/lucafavatella/mirror-gnu-global/blob/VERSION-6_5_4/global/gtags.conf.in#L234-L235
+https://github.com/lucafavatella/mirror-gnu-global/blob/VERSION-6_5_4/global/plugin-factory/pygments_parser.py.in#L201
+https://github.com/lucafavatella/mirror-gnu-global/blob/VERSION-6_5_4/global/plugin-factory/pygments_parser.py.in#L30
