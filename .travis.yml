@@ -15,9 +15,9 @@ script:
   - brew audit --strict --online "${GF:?}"
   - case "${H?}" in "") brew test -v "${GF:?}";; "--HEAD") brew test -v "${H?}" "${GF:?}";; esac
   - case "${H?}" in "") brew test    "${GF:?}";; "--HEAD") brew test    "${H?}" "${GF:?}";; esac
-matrix:
-  allow_failures:
-  fast_finish: true
+# matrix:
+#   allow_failures:
+#   fast_finish: true
 env:
   #- GF="global" H=""
   #- GF="global" H="--HEAD"
