@@ -10,11 +10,11 @@ before_install:
 install:
   - case "${GF:?}" in "lucafavatella/core/global-universal-ctags") brew install --HEAD universal-ctags/universal-ctags/universal-ctags;; esac
 script:
-  - case "${H?}" in "") brew install -v "${GF:?}" --with-ctags --with-pygments;; "--HEAD") brew install -v "${GF:?}" "${H?}" --with-ctags --with-pygments;; esac
+  - case "${H?}" in "") brew install -v "${GF:?}" --with-ctags --with-pygments;; "--HEAD") brew install -v "${H?}" "${GF:?}" --with-ctags --with-pygments;; esac
   - brew audit "${GF:?}"
   - brew audit --strict --online "${GF:?}"
-  - brew test -v "${GF:?}"
-  - brew test "${GF:?}"
+  - case "${H?}" in "") brew test -v "${GF:?}";; "--HEAD") brew test -v "${H?}" "${GF:?}";; esac
+  - case "${H?}" in "") brew test    "${GF:?}";; "--HEAD") brew test    "${H?}" "${GF:?}";; esac
 matrix:
   allow_failures:
   fast_finish: true
