@@ -8,9 +8,9 @@ before_install:
   - brew update
   #- brew upgrade
 install:
-  - case "${GF:?}" in "lucafavatella/core/global-universal-ctags") brew install --HEAD universal-ctags/universal-ctags/universal-ctags;; esac
+  - case "${GF:?}" in "lucafavatella/core/global") brew install --HEAD universal-ctags/universal-ctags/universal-ctags;; esac
 script:
-  - case "${H?}" in "") brew install -v "${GF:?}" --with-ctags --with-pygments;; "--HEAD") brew install -v "${H?}" "${GF:?}" --with-ctags --with-pygments;; esac
+  - case "${H?}" in "") brew install -v "${GF:?}" --with-universal-ctags;; "--HEAD") brew install -v "${H?}" "${GF:?}" --with-universal-ctags;; esac
   - brew audit "${GF:?}"
   - brew audit --strict --online "${GF:?}"
   - case "${H?}" in "") brew test -v "${GF:?}";; "--HEAD") brew test -v "${H?}" "${GF:?}";; esac
@@ -23,5 +23,3 @@ env:
   #- GF="global" H="--HEAD"
   - GF="lucafavatella/core/global" H=""
   - GF="lucafavatella/core/global" H="--HEAD"
-  - GF="lucafavatella/core/global-universal-ctags" H=""
-  - GF="lucafavatella/core/global-universal-ctags" H="--HEAD"
