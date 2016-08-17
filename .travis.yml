@@ -4,6 +4,7 @@ language: c
 before_install:
   - brew rm ctags || true
   - brew rm universal-ctags || true
+  - brew rm global || true
   - brew update
   - brew update
   #- brew upgrade
@@ -16,7 +17,7 @@ script:
   - case "${H?}" in "") brew test -v "${GF:?}";; "--HEAD") brew test -v "${H?}" "${GF:?}";; esac
   - case "${H?}" in "") brew test    "${GF:?}";; "--HEAD") brew test    "${H?}" "${GF:?}";; esac
 env:
-  #- GF="global" H=""
-  #- GF="global" H="--HEAD"
+  - GF="global" H=""
+  - GF="global" H="--HEAD"
   - GF="lucafavatella/core/global" H=""
   - GF="lucafavatella/core/global" H="--HEAD"
